@@ -536,12 +536,32 @@
                             <div class="footer-newsletter">
                                 <p>Subscribe Our Newsletter To Get Latest Update And News</p>
                                 <div class="subscribe-form">
-                                    <form action="mailto:info@cscworks.ca">
+                                    <!-- <form action="mailto:info@cscworks.ca">
                                         <input type="email" class="form-control" placeholder="Your Email">
                                         <button class="theme-btn" type="submit">
                                             Subscribe Now <i class="far fa-paper-plane"></i>
                                         </button>
+                                    </form> -->
+                                    <form id="subscribeForm">
+                                        <input type="email" class="form-control" id="emailInput" placeholder="Your Email" required>
+                                        <button class="theme-btn" type="submit">Subscribe Now <i class="far fa-paper-plane"></i></button>
                                     </form>
+                                    
+                                    <script>
+                                        document.getElementById('subscribeForm').addEventListener('submit', function (event) {
+                                            event.preventDefault(); // Prevent default form submission
+                                            
+                                            var email = document.getElementById('emailInput').value;
+                                    
+                                            // Construct the mailto link with form data
+                                            var mailtoLink = 'mailto:info@cscworks.ca'
+                                                + '?subject=Subscribe Request'
+                                                + '&body=' + encodeURIComponent('Please subscribe my email (' + email + ') for CSCWorks newsletter.');
+                                    
+                                            // Redirect the user to their default email client with pre-filled email
+                                            window.location.href = mailtoLink;
+                                        });
+                                    </script>
                                 </div>
                             </div>
                         </div>

@@ -178,7 +178,7 @@
                                     <p>It is a long established fact that a reader will be distracted by the readable
                                         content of a page when looking at its layout. </p>
                                 </div>
-                                <form method="post" action="/cospace/assets/php/contact.php" id="contact-form">
+                                <!-- <form method="post" action="/cospace/assets/php/contact.php" id="contact-form">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -206,8 +206,56 @@
                                     <div class="col-md-12 mt-3">
                                         <div class="form-messege text-success"></div>
                                     </div>
-                                </form>
-
+                                </form> -->
+                                <div class="contact-form">
+                                    <div class="contact-form-header">
+                                        <h2>Get In Touch</h2>
+                                        <p>It is a long established fact that a reader will be distracted by the readable
+                                            content of a page when looking at its layout. </p>
+                                    </div>
+                                    <form id="contact-form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="subject" placeholder="Your Subject" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea name="message" cols="30" rows="5" class="form-control" placeholder="Write Your Message"></textarea>
+                                        </div>
+                                        <button type="button" class="theme-btn" id="sendEmailBtn">Send Message <i class="far fa-paper-plane"></i></button>
+                                        <div class="col-md-12 mt-3">
+                                            <div class="form-message text-success"></div>
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                                <script>
+                                    document.getElementById('sendEmailBtn').addEventListener('click', function () {
+                                        var name = document.querySelector('input[name="name"]').value;
+                                        var email = document.querySelector('input[name="email"]').value;
+                                        var subject = document.querySelector('input[name="subject"]').value;
+                                        var message = document.querySelector('textarea[name="message"]').value;
+                                
+                                        // Construct the mailto link with form data
+                                        var mailtoLink = 'mailto:info@cscworks.ca'
+                                            + '?subject=' + encodeURIComponent(subject)
+                                            + '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nMessage: ' + message);
+                                
+                                        // Redirect the user to their default email client with pre-filled email
+                                        window.location.href = mailtoLink;
+                                    });
+                                </script>
+                                
                             </div>
                         </div>
                     </div>
@@ -295,12 +343,32 @@
                             <div class="footer-newsletter">
                                 <p>Subscribe Our Newsletter To Get Latest Update And News</p>
                                 <div class="subscribe-form">
-                                    <form action="mailto:info@cscworks.ca">
+                                    <!-- <form action="mailto:info@cscworks.ca">
                                         <input type="email" class="form-control" placeholder="Your Email">
                                         <button class="theme-btn" type="submit">
                                             Subscribe Now <i class="far fa-paper-plane"></i>
                                         </button>
+                                    </form> -->
+                                    <form id="subscribeForm">
+                                        <input type="email" class="form-control" id="emailInput" placeholder="Your Email" required>
+                                        <button class="theme-btn" type="submit">Subscribe Now <i class="far fa-paper-plane"></i></button>
                                     </form>
+                                    
+                                    <script>
+                                        document.getElementById('subscribeForm').addEventListener('submit', function (event) {
+                                            event.preventDefault(); // Prevent default form submission
+                                            
+                                            var email = document.getElementById('emailInput').value;
+                                    
+                                            // Construct the mailto link with form data
+                                            var mailtoLink = 'mailto:info@cscworks.ca'
+                                                + '?subject=Subscribe Request'
+                                                + '&body=' + encodeURIComponent('Please subscribe my email (' + email + ') for CSCWorks newsletter.');
+                                    
+                                            // Redirect the user to their default email client with pre-filled email
+                                            window.location.href = mailtoLink;
+                                        });
+                                    </script>
                                 </div>
                             </div>
                         </div>
