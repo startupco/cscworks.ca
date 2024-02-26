@@ -1,6 +1,6 @@
 /* =====================================================
 Template Name   : Cospace
-Description     : Office Rental And Coworking Space HTML5 Template
+Description     : Office Rental And Coworking Space
 Author          : LunarTemp
 Version         : 1.0
 =======================================================*/
